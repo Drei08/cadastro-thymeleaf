@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">	
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastrando</title>
+</head>
+<body>
+	<h1 th:tex="${novo}">Tela de Cadastro</h1>
+	
+	<fieldset>
+		<legend>CADASTRO DE USUÁRIO</legend>
+		<form th:action="@{/cadastrar}" th:method="post" th:object="${usuario}">
+			<p>
+				<label>Nome: </label>
+				<input type="text" th:field="*{nome}" />
+			</p>
+			
+			<p>
+				<label>Cpf: </label>
+				<input type="text" th:field="*{cpf}" />
+			</p>
+			
+			<p>
+				<label>Sexo: </label>
+				<input type="radio" value="masculino" th:field="*{sexo}" />Masculino
+				<input type="radio" value="feminino" th:field="*{sexo}" />Femino
+				<input type="radio" value="naoresponder" th:field="*{sexo}" />Não Responder
+			</p>
+			
+			<p>
+				<label>Login: </label>
+				<input type="text" th:field="*{login}"/>
+			</p>
+			
+			<p>
+				<label>Senha: </label>
+				<input type="password" th:field="*{senha}" />
+			</p>
+			
+			<p>Cargo: 
+				<select th:field="*{cargo}">
+					<option value="selecione" name="cargo">selecione</option>
+					<option value="back-end" name="cargo">Back-End</option>
+					<option value="front-end" name="cargo">Front-End</option>
+					<option value="full-stack" name="cargo">Full-Stack</option>
+					<option value="mobile" name="cargo">Mobile</option>
+					<option value="dev-ops" name="cargo"> Dev-Ops</option>	
+				</select>	
+			</p>
+			
+			<P>
+				<label>Habilidades: </label>
+				<input type="checkbox" value="Java" th:field="*{habilidades}" />Java
+				<input type="checkbox" value="mysql" th:field="*{habilidades}" />MySQL
+				<input type="checkbox" value="springboot" th:field="*{habilidades}" />Spring Boot
+				<input type="checkbox" value="postman" th:field="*{habilidades}" />Postman
+				<input type="checkbox" value="git" th:field="*{habilidades}" />GitHub		
+			</P>
+			
+			<p>
+				<button type="submit">Cadastrar</button>
+				<button type="reset">Limpar</button>
+					
+			</p>
+		</form>
+	</fieldset>
+</body>
+</html>
